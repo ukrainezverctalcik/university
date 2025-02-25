@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бічне меню</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style type="text/css">
+        
+        /* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Блок меню */
+.sidebar {
+    margin-left: 40%;
+    background: linear-gradient(to bottom, #2a98bc, #157a9c);
+    width: 260px;
+    padding: 23px;
+    padding-top: 36px;
+    padding-bottom: 50px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    color: white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h3 {
+    margin: 0 0 20px 10px;
+    font-size: 18px;
+}
+
+/* Список меню */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 5px 0;
+}
+
+/* Стилізація пунктів меню */
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-align: left;
+    padding-left: 15px;
+}
+
+/* Стилізація активного пункту */
+.sidebar ul li a.active {
+   background: linear-gradient(to right, #6bd8fd, #2794b8);
+}
+
+/* Ефект при наведенні */
+.sidebar ul li a:hover {
+    background: linear-gradient(to right, #6bd8fd, #2794b8);
+}
+
+
+        /* Контейнер контенту */
+        .container {
+            width: 80%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    margin-top: 60px;
+    border: 3px solid black;
+    margin-left: 8%;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .content-box {
+           padding: 15px;
+    margin: 20px 0;
+    text-align: left;
+        }
+
+        h2 {
+            color: #ff81c8;
+    font-size: 20px;
+    text-align: center;
+        }
+
+        .highlight {
+            color: green;
+            font-weight: bold;
+        }
+
+        .read-more {
+            color: #ff81c8;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h3>Menu:</h3>
+        <ul>
+            <li><a href="#" class="active">Position 1</a></li>
+            <li><a href="#">Position 2</a></li>
+            <li><a href="#">Position 3</a></li>
+            <li><a href="#">Position 4</a></li>
+            <li><a href="#">Position 5</a></li>
+            <li><a href="#">Position 6</a></li>
+        </ul>
+    </div>
+
+    <!-- Контент -->
+    <div class="container">
+        <h1>Шаблон сайта</h1>
+
+        <div class="content-box">
+            <h2>Integer odio risus</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor, massa eget varius vulputate, quam dolor pharetra lorem, vel egestas purus felis non nibh  <span class="highlight">amet</span>, Quisque nec augue a sapien ornare vehicula. Aliquam ullamcorper posuere erat ut suscipit. Aliquam erat volutpat. Donec interdum, nulla ut gravida commodo, augue orci aliquam sem, non commodo orci enim ut mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis ligula lacus, tempus a viverra ac, faucibus eget est. Sed vitae vehicula nisi. Morbi feugiat sit amet elit vel placerat.</p>
+            <p>Cras ut nunc metus. Nullam id faucibus ante...</p>
+            <a href="#" class="read-more">Подробнее...</a>
+        </div>
+
+        <div class="content-box">
+            <h2>Nullam id faucibus ante!</h2>
+            <p>Quisque nec augue a sapien ornare vehicula.  <span class="highlight">pulvinar suscipit dui</span>...</p>
+            <p>Aliquam ullamcorper posuere erat ut suscipit. Aliquam erat volutpat. Donec interdum, nulla ut gravida commodo, augue orci aliquam sem, non commodo orci enim ut mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis ligula lacus, tempus a viverra ac, faucibus eget est. Sed vitae vehicula nisi. Morbi feugiat sit amet elit vel placerat.</p>
+        </div>
+    </div>
+
+</body>
+</html>
