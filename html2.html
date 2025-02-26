@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна №2 - CSS Анімація</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Горизонтальне випадаюче меню */
+.horizontal-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #333;
+    display: flex;
+    justify-content: center;
+}
+
+.horizontal-menu ul li {
+    position: relative;
+}
+
+.horizontal-menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.horizontal-menu ul li:hover > ul {
+    display: block;
+}
+
+.horizontal-menu ul ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    background: #555;
+    padding: 0;
+}
+
+.horizontal-menu ul ul li {
+    display: block;
+    width: 150px;
+}
+
+.horizontal-menu ul ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+/* Вертикальне випадаюче меню */
+.vertical-menu ul {
+    list-style: none;
+    padding: 0;
+    width: 200px;
+    background: #444;
+}
+
+.vertical-menu ul li {
+    position: relative;
+}
+
+.vertical-menu ul li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    background: #444;
+    border-bottom: 1px solid #666;
+}
+
+.vertical-menu ul li:hover > ul {
+    display: block;
+}
+
+.vertical-menu ul ul {
+    position: absolute;
+    display: none;
+    left: 100%;
+    top: 0;
+    background: #666;
+    width: 150px;
+}
+
+/* Анімація */
+.animated-box {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    margin: 20px auto;
+    position: relative;
+    animation: move-box 3s infinite alternate, change-color 3s infinite alternate;
+}
+
+@keyframes move-box {
+    0% { left: 0; }
+    100% { left: 100px; }
+}
+
+@keyframes change-color {
+    0% { background: blue; }
+    100% { background: red; }
+}
+
+/* Реклама */
+.ad-banner {
+    background: yellow;
+    color: black;
+    padding: 15px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 2px solid black;
+    font-weight: bold;
+}
+        
+    </style>
+
+
+</head>
+<body>
+
+    <!-- Трьохрівневий горизонтальний випадаючий список -->
+    <nav class="horizontal-menu">
+        <ul>
+            <li><a href="#">Item 1</a>
+                <ul>
+                    <li><a href="#">Subitem 1.1</a>
+                        <ul>
+                            <li><a href="#">Subitem 1.1.1</a></li>
+                            <li><a href="#">Subitem 1.1.2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Subitem 1.2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+        </ul>
+    </nav>
+
+    <!-- Дворівневий вертикальний випадаючий список -->
+    <nav class="vertical-menu">
+        <ul>
+            <li><a href="#">Category 1</a>
+                <ul>
+                    <li><a href="#">Subcategory 1.1</a></li>
+                    <li><a href="#">Subcategory 1.2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Category 2</a></li>
+        </ul>
+    </nav>
+
+    <!-- Блок з анімацією -->
+    <div class="animated-box">
+        Анімований блок
+    </div>
+
+    <!-- Блок реклами, який з’являється і зникає -->
+    <div class="ad-banner" id="adBanner">
+        Це реклама! Вона зникне через 5 секунд.
+    </div>
+
+    <script>
+        // Автоматичне зникнення реклами через 5 секунд
+        setTimeout(() => {
+            document.getElementById("adBanner").style.display = "none";
+        }, 5000);
+    </script>
+
+</body>
+</html>
