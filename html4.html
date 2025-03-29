@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Лабораторна №4 - Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Bootstrap CSS та JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+    .custom-section {
+      padding: 40px 20px;
+    }
+    .badge-title {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Навігаційна панель -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Мій сайт</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Головна</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Профіль</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Повідомлення</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Контент з сіткою -->
+<div class="container text-center custom-section">
+  <h2>Сітка з трьох блоків</h2>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>Блок 1</p>
+      <span class="glyphicon glyphicon-camera" style="font-size:40px;"></span>
+    </div>
+    <div class="col-sm-4">
+      <p>Блок 2</p>
+      <span class="glyphicon glyphicon-music" style="font-size:40px;"></span>
+    </div>
+    <div class="col-sm-4">
+      <p>Блок 3</p>
+      <span class="glyphicon glyphicon-heart" style="font-size:40px;"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Пагінація -->
+<div class="container text-center custom-section">
+  <h2>Пагінація</h2>
+  <ul class="pagination">
+    <li><a href="#">«</a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">»</a></li>
+  </ul>
+</div>
+
+<!-- Badges -->
+<div class="container custom-section">
+  <h2>Badges (мітки)</h2>
+  <p class="badge-title">Повідомлення <span class="badge">5</span></p>
+  <br>
+  <p class="badge-title">Оновлення <span class="badge">2</span></p>
+  <br>
+  <p class="badge-title">Коментарі <span class="badge">12</span></p>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid text-center custom-section" style="background-color:#f1f1f1;">
+  <p>© 2024 Мій сайт на Bootstrap</p>
+</footer>
+
+</body>
+</html>
