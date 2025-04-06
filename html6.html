@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна №8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        input, textarea {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 300px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Лабораторна робота №6</h1>
+
+    <!-- Завдання 1 -->
+    <section>
+        <h2>Завдання 1: Пошук від’ємних чисел і нулів</h2>
+        <p>Масив: [4, -2, 0, 7, -5, 3]</p>
+        <button onclick="runCounter()">Запустити counter()</button>
+        <p id="counter-result"></p>
+    </section>
+
+    <!-- Завдання 2 -->
+    <section>
+        <h2>Завдання 2: Виведення дати у форматі ДД.ММ.РР</h2>
+        <button onclick="showDate()">Показати дату</button>
+        <p id="date-result"></p>
+    </section>
+
+    <!-- Завдання 3 -->
+    <section>
+        <h2>Завдання 3: Форма з перевіркою поштового індексу</h2>
+        <form onsubmit="return validateForm()">
+            <label>Ім’я: <input type="text" name="fname" required></label>
+            <label>Прізвище: <input type="text" name="lname" required></label>
+            <label>Адреса: <input type="text" name="address" required></label>
+            <label>Місто: <input type="text" name="city" required></label>
+            <label>Країна: <input type="text" name="country" required></label>
+            <label>Поштовий індекс: <input type="text" id="zip" name="zip" required></label>
+            <label>Телефон: <input type="text" name="phone" required></label>
+            <label>Email: <input type="email" name="email" required></label>
+            <button type="submit">Надіслати</button>
+        </form>
+    </section>
+
+    <!-- Скрипти -->
+    <script>
+        // Завдання 1
+        function counter(arr) {
+            let positions = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] <= 0) {
+                    positions.push(i);
+                }
+            }
+            return positions;
+        }
+
+        function runCounter() {
+            let result = counter([4, -2, 0, 7, -5, 3]);
+            document.getElementById("counter-result").innerText =
+                "Позиції: " + result.join(", ");
+        }
+
+        // Завдання 2
+        function showDate() {
+    let d = new Date();
+    let hours = d.getHours();
+    let minutes = String(d.getMinutes()).padStart(2, '0');
+    let seconds = String(d.getSeconds()).padStart(2, '0');
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+
+    hours = hours % 12;
+    hours = hours ? hours : 12; // 0 -> 12
+    hours = String(hours).padStart(2, '0');
+
+    document.getElementById("date-result").innerText =
+        `Час: ${hours}-${minutes}-${seconds} ${ampm}`;
+}
+
+        // Завдання 3
+        function validateForm() {
+            let zip = document.getElementById("zip").value;
+            let pattern = /^\d{5}$/;
+            if (!pattern.test(zip)) {
+                alert("Поштовий індекс має містити рівно 5 цифр!");
+                return false;
+            }
+            alert("Форма надіслана успішно!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
