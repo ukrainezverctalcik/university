@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Лабораторна 7: Гра «21» та Обробка тексту</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #0057b7;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px 5px 0 0;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .output, .paragraphs {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Лабораторна робота №7</h1>
+    <p>Гра «21» + Обробка тексту з видаленням слова «Акція»</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Завдання 2: Гра «21»</h2>
+      <p>Спробуй набрати 21, не перевищивши!</p>
+      <div class="output" id="cards">Сума: 0</div>
+      <div class="highlight" id="status"></div>
+      <button onclick="drawCard()">Взяти карту</button>
+      <button onclick="resetGame()">Почати заново</button>
+    </section>
+
+    <section>
+      <h2>Завдання 3: Видалення слова «Акція» з абзаців</h2>
+      <div class="paragraphs">
+        <p>Ця Акція триває до кінця тижня.</p>
+        <p>Ми пропонуємо найкращі товари.</p>
+        <p>Акція: купи два — отримай третій безкоштовно!</p>
+        <p>Безкоштовна доставка — це наша нова Акція!</p>
+      </div>
+      <button onclick="removeWord()">Очистити слово «Акція»</button>
+    </section>
+  </main>
+
+  <script>
+    let total = 0;
+
+    function drawCard() {
+      const card = Math.floor(Math.random() * 11) + 1;
+      total += card;
+      document.getElementById('cards').innerText = 'Сума: ' + total;
+
+      if (total === 21) {
+        document.getElementById('status').innerText = 'Вітаю! Ти виграв!';
+      } else if (total > 21) {
+        document.getElementById('status').innerText = 'Програш! Перебрав.';
+      } else {
+        document.getElementById('status').innerText = '';
+      }
+    }
+
+    function resetGame() {
+      total = 0;
+      document.getElementById('cards').innerText = 'Сума: 0';
+      document.getElementById('status').innerText = '';
+    }
+
+    function removeWord() {
+      const paragraphs = document.querySelectorAll('.paragraphs p');
+      paragraphs.forEach(p => {
+        if (p.textContent.includes('Акція')) {
+          p.innerHTML = p.innerHTML.replace(/Акція:?\s?/gi, '');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
